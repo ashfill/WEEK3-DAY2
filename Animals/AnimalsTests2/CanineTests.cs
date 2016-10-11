@@ -40,8 +40,8 @@ namespace Animals.Tests
         public void AdoptedTest1()
         {
             Human erik = new Human();
-            c.Adopted(erik);
-            Assert.AreEqual(erik, c.Owner);
+            c.Adopted(erik,"ruff");
+            Assert.AreEqual(erik.FirstName,c.Owner.FirstName);
             
         }
     }

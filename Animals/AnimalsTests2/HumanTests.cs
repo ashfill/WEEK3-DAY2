@@ -39,6 +39,11 @@ namespace Animals.Tests
         [TestMethod()]
         public void GetMarriedTest1()
         {
+            g.FirstName = "hank";
+            Assert.AreEqual("hank", g.FirstName);
+            g.LastName = "rubell";
+            Assert.AreEqual("rubell", g.LastName);
+            g.GetMarried(g.FirstName,g.LastName);
 
             
         }
@@ -46,13 +51,19 @@ namespace Animals.Tests
         [TestMethod()]
         public void GetSingleTest()
         {
-            Assert.Fail();
+            g.MaritalStatus = 'S';
+            Assert.AreNotEqual('S', 'M');
         }
 
         [TestMethod()]
         public void GetSingleTest1()
         {
-            Assert.Fail();
+            g.FirstName = "Dave";
+            Assert.AreEqual("Dave", g.FirstName);
+            g.LastName = "Kozminski";
+            Assert.AreEqual("Kozminski", g.LastName);
+            g.GetSingle(g.FirstName, g.LastName);
+            Assert.IsNotNull(g.GetSingle());
         }
     }
 }

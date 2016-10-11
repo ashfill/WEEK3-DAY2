@@ -11,10 +11,11 @@ namespace Animals.Tests
     [TestClass()]
     public class MammalTests
     {
+        Mammal j = new Mammal();
         [TestMethod()]
         public void MammalTest()
         {
-            Assert.Fail();
+            
         }
 
         [TestMethod()]
