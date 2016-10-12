@@ -25,16 +25,21 @@ namespace Animals.Tests
         {
             j.HasOffspring = true;
             Assert.IsTrue(j.HasOffspring);
-            j.GiveBirth(1);
+            j.GiveBirth();
+            Assert.IsNotNull(j.HasOffspring);
+            Assert.AreEqual(j.NumChildren, 1);
         }
 
         [TestMethod()]
         public void GiveBirthTest1()
         {
+            int NumBabies = 1;
+            Assert.IsNotNull(NumBabies);
             j.HasOffspring = true;
+            j.GiveBirth();
             Assert.IsTrue(j.HasOffspring);
             Assert.IsNotNull(j.NumChildren);
-            j.GiveBirth(j.NumChildren += 9);
+            Assert.AreEqual(j.NumChildren, NumBabies);
         }
     }
 }

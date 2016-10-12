@@ -15,54 +15,59 @@ namespace Animals.Tests
         [TestMethod()]
         public void HumanTest()
         {
-            g.NumLegs = 2;
+            //g.NumLegs = 2;
             Assert.AreEqual(2, g.NumLegs);
-            g.HasFur = false;
+            //g.HasFur = false;
             Assert.IsFalse(g.HasFur);
-            g.Species = "homosapien";
-            Assert.AreEqual("homosapien", g.Species);
-            g.HasTail = false;
+            //g.Species = "homosapien";
+            Assert.AreEqual("Homosapien", g.Species);
+            //g.HasTail = false;
             Assert.IsFalse(g.HasTail);
-            g.HasOpposableThumb = true;
+            //g.HasOpposableThumb = true;
             Assert.IsTrue(g.HasOpposableThumb);
-            g.MaritalStatus = 'S';
+            //g.MaritalStatus = 'S';
             Assert.AreEqual('S', g.MaritalStatus);
         }
 
         [TestMethod()]
         public void GetMarriedTest()
         {
-            g.MaritalStatus = 'M';
-            Assert.AreNotEqual('M', 'S');
+            Assert.AreEqual(g.MaritalStatus,'S');
+            g.GetMarried();
+            Assert.AreNotEqual(g.MaritalStatus,"M");
         }
 
         [TestMethod()]
         public void GetMarriedTest1()
         {
             g.FirstName = "hank";
-            Assert.AreEqual("hank", g.FirstName);
+            Assert.AreEqual("hank",g.FirstName);
             g.LastName = "rubell";
-            Assert.AreEqual("rubell", g.LastName);
-            g.GetMarried(g.FirstName,g.LastName);
-
+            Assert.AreEqual("rubell",g.LastName);
+            g.GetMarried();
+            Assert.AreEqual(g.MaritalStatus, 'M');
             
         }
 
         [TestMethod()]
         public void GetSingleTest()
         {
-            g.MaritalStatus = 'S';
-            Assert.AreNotEqual('S', 'M');
+            g.GetMarried();
+            Assert.AreNotEqual(g.MaritalStatus,"M");
+            g.GetSingle();
+            Assert.AreEqual(g.MaritalStatus, 'S');
         }
 
         [TestMethod()]
         public void GetSingleTest1()
         {
             g.FirstName = "Dave";
-            Assert.AreEqual("Dave", g.FirstName);
             g.LastName = "Kozminski";
+            g.GetMarried();
+            Assert.AreEqual("Dave", g.FirstName);
             Assert.AreEqual("Kozminski", g.LastName);
-            g.GetSingle(g.FirstName, g.LastName);
+            Assert.AreEqual(g.MaritalStatus, 'M');
+            g.GetSingle();
             Assert.IsNotNull(g.GetSingle());
         }
     }
